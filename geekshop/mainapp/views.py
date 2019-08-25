@@ -4,16 +4,28 @@ from django.shortcuts import render
 
 
 def main(request):
-    return render(request, 'mainapp/index.html')
+    context = {
+        'page_title': 'interior: home page',
+    }
+    return render(request, 'mainapp/index.html', context)
 
 
 def product(request):
-    return render(request, 'mainapp/interior-product.html')
+    context = {
+        'page_title': 'interior: products',
+    }
+    return render(request, 'mainapp/interior-product.html', context)
 
 
 def contact(request):
-    return render(request, 'mainapp/interior-contact.html')
+    context = {
+        'page_title': 'interior: contacts',
+    }
+    return render(request, 'mainapp/interior-contact.html', context)
 
 
 def productdet(request):
-    return render(request, 'mainapp/interior-product-details.html')
+    context = {
+        'page_title': 'interior: fishnet chair',
+    }
+    return render(request, 'mainapp/interior-product-details.html', context)
