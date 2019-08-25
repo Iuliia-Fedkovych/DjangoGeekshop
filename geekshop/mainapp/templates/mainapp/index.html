@@ -7,11 +7,11 @@
                 <div class="header">
                     <a href="/" class="logo"><img src="{% static 'img/logo.svg' %}" alt="logo"></a>
                     <ul class="menu">
-                        <li><a href="/" class="menu__link menu__link_active">HOME</a></li>
-                        <li><a href="/interior-product/" class="menu__link">PRODUCTS</a></li>
+                        <li><a href="{% url 'main' %}" class="menu__link menu__link_active">HOME</a></li>
+                        <li><a href="{% url 'product' %}" class="menu__link">PRODUCTS</a></li>
                         <li><a href="#" class="menu__link">HISTORY</a></li>
                         <li><a href="#" class="menu__link">SHOWROOM</a></li>
-                        <li><a href="/interior-contact/" class="menu__link">CONTACT</a></li>
+                        <li><a href="{% url 'contact' %}" class="menu__link">CONTACT</a></li>
                         <li><a href="#" class="menu__link"><i class="fas fa-search"></i></a></li>
                     </ul>
                 </div>
@@ -90,7 +90,7 @@
             <div class="trending padding_site">
                 <div class="hading_trending">
                     <h2 class="trending_h2">Trending Products</h2>
-                    <a href="/interior-product/" class="btn_ghost">explore all <i class="fas fa-chevron-right"></i></a>
+                    <a href="{% url 'productdet' %}" class="btn_ghost">explore all <i class="fas fa-chevron-right"></i></a>
                 </div>
                 <div class="tab_content">
                     <div class="trending_product" style="background-image: url({% static 'img/product-11.jpg' %})">
