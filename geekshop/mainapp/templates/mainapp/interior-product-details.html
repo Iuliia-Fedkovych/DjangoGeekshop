@@ -1,29 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'mainapp/base.html' %}
+{% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Interior: Fishnet Chair</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/style.css">
-    <script src="https://kit.fontawesome.com/8fece0c8ba.js"></script>
-</head>
-
-<body>
-    <div class="container">
-        <div class="top">
+{% block top %}
+<div class="top">
             <div class="product_details_menu padding_site">
-                <div class="header">
-                    <a href="/" class="logo"><img src="/static/img/logo.svg" alt="logo"></a>
-                    <ul class="menu">
-                        <li><a href="/" class="menu__link">HOME</a></li>
-                        <li><a href="/interior-product/" class="menu__link menu__link_active">PRODUCTS</a></li>
-                        <li><a href="#" class="menu__link">HISTORY</a></li>
-                        <li><a href="#" class="menu__link">SHOWROOM</a></li>
-                        <li><a href="/interior-contact/" class="menu__link">CONTACT</a></li>
-                        <li><a href="#" class="menu__link"><i class="fas fa-search"></i></a></li>
-                    </ul>
-                </div>
+                {% include 'mainapp/includes/inc_main_menu.html' %}
             </div>
             <div class="product_information_menu">
                 <ul class="tab-control">
@@ -40,9 +21,9 @@
                 <div class="product_slider">
                     <div class="product_slider_big"></div>
                     <div class="product_slider_elem">
-                        <div class="product_slider_small" style="background-image: url(img/controll.jpg)"></div>
-                        <div class="product_slider_small" style="background-image: url(img/controll11.jpg)"></div>
-                        <div class="product_slider_small" style="background-image: url(img/controll2.jpg)"></div>
+                        <div class="product_slider_small" style="background-image: url({% static 'img/controll.jpg' %})"></div>
+                        <div class="product_slider_small" style="background-image: url({% static 'img/controll11.jpg' %})"></div>
+                        <div class="product_slider_small" style="background-image: url({% static 'img/controll2.jpg' %})"></div>
                     </div>
 
                 </div>
@@ -60,24 +41,24 @@
             <div class="trending padding_site">
                 <div class="hading_trending">
                     <h2 class="trending_h2">Related Products</h2>
-                    <a href="/interior-product/" class="btn_ghost">explore all <i class="fas fa-chevron-right"></i></a>
+                    <a href="interior-product.html" class="btn_ghost">explore all <i class="fas fa-chevron-right"></i></a>
                 </div>
                 <div class="tab_content">
-                    <div class="trending_product" style="background-image: url(/static/img/product-11.jpg)">
+                    <div class="trending_product" style="background-image: url({% static 'img/product-11.jpg' %})">
                         <div class="product_content">
                             <a href="#" class="button btn_circle"><i class="fas fa-chevron-right chevron-circle"></i></a>
                             <h2 class="product_name">Fishnet Chair</h2>
                             <p class="text_reg text_product">Seat and back with upholstery made of cold cure foam. Steel frame, available in matt powder-coated black or highly polished chrome.</p>
                         </div>
                     </div>
-                    <div class="trending_product" style="background-image: url(/static/img/product-21.jpg)">
+                    <div class="trending_product" style="background-image: url({% static 'img/product-21.jpg' %})">
                         <div class="product_content">
                             <a href="#" class="button btn_circle"><i class="fas fa-chevron-right chevron-circle"></i></a>
                             <h2 class="product_name">Fishnet Chair</h2>
                             <p class="text_reg text_product">Seat and back with upholstery made of cold cure foam. Steel frame, available in matt powder-coated black or highly polished chrome.</p>
                         </div>
                     </div>
-                    <div class="trending_product" style="background-image: url(/static/img/product-31.jpg)">
+                    <div class="trending_product" style="background-image: url({% static 'img/product-31.jpg' %})">
                         <div class="product_content">
                             <a href="#" class="button btn_circle"><i class="fas fa-chevron-right chevron-circle"></i></a>
                             <h2 class="product_name">Fishnet Chair</h2>
@@ -88,51 +69,4 @@
                 </div>
             </div>
         </div>
-        <div class="footer padding_site">
-            <div class="fotter_content">
-                <div class="contact_us">
-                    <div class="color_text text_contact_us">Contact Us</div>
-                    <div class="adress"> 132A Bridge Road Richmond VIC Australia.</div>
-                    <div class="adress"> Talk to us on 1300 132 info@interior.com</div>
-                </div>
-                <div class="useful">
-                    <div class="color_text text_contact_us">Useful Information</div>
-                    <div class="usefull_links">
-                        <a href="#" class="use_link">Sales terms</a>
-                        <a href="#" class="use_link">Architect accounts</a>
-                        <a href="#" class="use_link">Customer care</a>
-                        <a href="#" class="use_link">Careers</a>
-                        <a href="#" class="use_link">Delivery</a>
-                        <a href="#" class="use_link">Exchanges &amp; returns</a>
-                    </div>
-                </div>
-                <div class="stay_in_touch">
-                    <div class="color_text text_contact_us">Let&rsquo;s Stay in&nbsp;Touch!</div>
-                    <div class="adress"> Suscribe to know about our latest news, products and special offers just for suscribers.</div>
-                    <form action="#" class="contact_form">
-                        <input type="email" class="email" placeholder="your email address">
-                        <a href="#" class="icon_link"><i class="fab fa-telegram-plane"></i></a>
-                    </form>
-                </div>
-            </div>
-            <div class="footer_footer">
-                <div class="copyright">&copy;&nbsp;Copyright&nbsp;&mdash; INTERIOR 2016. All Rights Reserved.</div>
-
-                <div class="social">
-                    <a href="#" class="social_link"><img src="/static/img/online%20social%20media%20facebook%20by%20alfredocreates.svg" alt="facebook"></a>
-                    <a href="#" class="social_link"><img src="/static/img/twitter%20online%20social%20media%20by%20alfredocreates.svg" alt="twitter"></a>
-                    <a href="#" class="social_link"><img src="/static/img/online%20social%20media%20google%20plus%20by%20alfredocreates.svg" alt="google plus"></a>
-                    <a href="#" class="social_link"><img src="/static/img/online%20social%20media%20pinterest%20by%20alfredocreates.svg" alt="pinterest"></a>
-                </div>
-
-
-                <div class="copyright">Terms &amp;&nbsp;Conditions&nbsp;/ Privacy policy &amp;&nbsp;Cookies</div>
-
-            </div>
-
-        </div>
-    </div>
-
-</body>
-
-</html>
+{% endblock %}
