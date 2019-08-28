@@ -1,5 +1,6 @@
 import json
 from django.shortcuts import render
+from .models import ProductCategory, Product
 
 # Create your views here.
 
@@ -12,8 +13,12 @@ def main(request):
 
 
 def product(request):
+    all_products = Product.objects.all()
+    categories = ProductCategory.objects.all()
     context = {
         'page_title': 'interior: products',
+        'all_products': all_products,
+        'categories': categories,
     }
     return render(request, 'mainapp/interior-product.html', context)
 
