@@ -9,7 +9,7 @@
             </a>
         </li>
         <li>
-            <a href="{% url 'product:index' %}" class="menu__link {% if request.resolver_match.url_name == 'product' or request.resolver_match.url_name == 'productdet'%} menu__link_active {% endif %}">
+            <a href="{% url 'product:index' %}" class="menu__link {% if request.resolver_match.url_name == 'product:index' or request.resolver_match.url_name == 'productdet' %} menu__link_active {% endif %}">
                 PRODUCTS
             </a>
         </li>
