@@ -10,9 +10,9 @@
             <div class="products padding_site">
                 <div class="hading_featured">
                     <ul class="tab-control">
-                        <li><a href="/interior-product/all/" class="product_menu">ALL</a></li>
+                        <li><a href="/interior-product/0/" class="product_menu">ALL</a></li>
                         {% for category in categories %}
-                        <li><a href="/interior-product/{{ category.name }}/" class="product_menu">{{ category.name|title }}</a></li>
+                        <li><a href="/interior-product/{{ category.pk }}/" class="product_menu">{{ category.name|title }}</a></li>
                         {% endfor %}
                     </ul>
                 </div>
