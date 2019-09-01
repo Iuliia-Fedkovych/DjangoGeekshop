@@ -26,6 +26,20 @@
                 CONTACT
             </a>
         </li>
+        {% if user.is_authenticated %}
+        <li>
+            <a href = "{% url 'auth:edit' %}" class="menu__link">
+                {{ user.first_name|default:'User' }}
+            </a>
+        </li>
+        {% endif %}
+        <li>
+            {% if user.is_authenticated %}
+            <a href="{% url 'auth:logout' %}" class="menu__link">logout</a>
+            {% else %}
+            <a href = "{% url 'auth:login' %}" class="menu__link">login</a>
+            {% endif %}
+        </li>
         <li>
             <a href="#" class="menu__link">
                 <i class="fas fa-search"></i>
