@@ -6,17 +6,15 @@
             <div class="product_details_menu padding_site">
                 {% include 'mainapp/includes/inc_main_menu.html' %}
             </div>
-            <div class="product_information_menu">
+<!--            <div class="product_information_menu">
                 <ul class="tab-control">
-                    <li><a href="#" class="product_menu product_menu_active">All</a></li>
-                    <li><a href="#" class="product_menu">HOME</a></li>
-                    <li><a href="#" class="product_menu">OFFICE</a></li>
-                    <li><a href="#" class="product_menu">FURNITURE</a></li>
-                    <li><a href="#" class="product_menu">MODERN</a></li>
-                    <li><a href="#" class="product_menu">CLASSIC</a></li>
+                    {% for link in links_menu %}
+                    <li><a href="{% url link.href %}"
+                           class="product_menu {% if request.resolver_match.url_name == link.href %} product_menu_active {% endif %}">
+                        {{ link.name|title }}</a></li>
+                    {% endfor %}
                 </ul>
-
-            </div>
+            </div>-->
             <div class="product_information padding_site">
                 <div class="product_slider">
                     <div class="product_slider_big"></div>
