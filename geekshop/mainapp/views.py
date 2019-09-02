@@ -12,8 +12,9 @@ def main(request):
     return render(request, 'mainapp/index.html', context)
 
 
-def product(request):
-    all_products = Product.objects.all()
+def product(request, pk=None):
+    print(pk)
+    all_products = Product.objects.filter(category_id=pk).all()
     categories = ProductCategory.objects.all()
     context = {
         'page_title': 'interior: products',

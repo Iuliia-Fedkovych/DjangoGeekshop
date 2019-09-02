@@ -9,7 +9,7 @@
             </a>
         </li>
         <li>
-            <a href="{% url 'product' %}" class="menu__link {% if request.resolver_match.url_name == 'product' or request.resolver_match.url_name == 'productdet'%} menu__link_active {% endif %}">
+            <a href="{% url 'product:index' %}" class="menu__link {% if request.resolver_match.url_name == 'product:index' or request.resolver_match.url_name == 'productdet' %} menu__link_active {% endif %}">
                 PRODUCTS
             </a>
         </li>
@@ -25,6 +25,20 @@
             <a href="{% url 'contact' %}" class="menu__link {% if request.resolver_match.url_name == 'contact' %} menu__link_active {% endif %}">
                 CONTACT
             </a>
+        </li>
+        {% if user.is_authenticated %}
+        <li>
+            <a href = "{% url 'auth:edit' %}" class="menu__link">
+                {{ user.first_name|default:'User' }}
+            </a>
+        </li>
+        {% endif %}
+        <li>
+            {% if user.is_authenticated %}
+            <a href="{% url 'auth:logout' %}" class="menu__link">logout</a>
+            {% else %}
+            <a href = "{% url 'auth:login' %}" class="menu__link">login</a>
+            {% endif %}
         </li>
         <li>
             <a href="#" class="menu__link">
