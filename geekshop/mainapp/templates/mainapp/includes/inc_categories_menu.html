@@ -1,0 +1,18 @@
+{% load static %}
+
+<ul class="tab-control">
+    <li>
+        <a href="{% url 'product:category' 0 %}"
+           class="product_menu {% if request.resolver_match.kwargs.pk == 0 %} product_menu_active {% endif %}">
+            ALL
+        </a>
+    </li>
+    {% for category in categories %}
+    <li>
+        <a href="{% url 'product:category' category.pk %}"
+           class="product_menu {% if request.resolver_match.kwargs.pk|add:'0' == category.pk %} product_menu_active {% endif %}">
+            {{ category.name|title }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
