@@ -1,6 +1,8 @@
 import json
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
+
+from basketapp.models import Basket
 from .models import ProductCategory, Product
 
 # Create your views here.
@@ -17,6 +19,10 @@ def product(request, pk=None):
     print(pk)
     categories = ProductCategory.objects.all()
 
+    basket = []
+    if request.user.is_authenticated:
+        basket = Basket.objects.filter(user=request.user)
+
     if pk is not None:
         if pk == 0:
             products = Product.objects.all()
@@ -29,6 +35,7 @@ def product(request, pk=None):
             'products': products,
             'categories': categories,
             'category': category,
+            'basket': basket,
         }
 
         return render(request, 'mainapp/interior-product.html', context)
@@ -38,6 +45,7 @@ def product(request, pk=None):
         'page_title': 'interior: products',
         'products': products,
         'categories': categories,
+        'basket': basket,
     }
     return render(request, 'mainapp/interior-product.html', context)
 
