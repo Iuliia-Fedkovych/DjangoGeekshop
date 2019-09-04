@@ -27,25 +27,6 @@
                 </div>
 
             </div>
-            <div class="promo">
-                <div class="promo_img" style="background-image: url({% static 'img/promo-img1.jpg' %})">
-                    <div class="promo_content">
-                        <div class="color_text color_exclusive">exclusive</div>
-                        <h2 class="promo_h2">Fishnet Chair</h2>
-                        <p class="text_reg propmo_p">Seat and back with upholstery made of cold cure foam. Steel frame, available in matt powder-coated black or highly polished chrome.</p>
-                        <a href="#" class="button button_long">Order Us <i class="fas fa-chevron-right"></i></a>
-                    </div>
-
-                </div>
-                <div class="promo_img" style="background-image: url({% static 'img/promo-img.jpg' %})">
-                    <div class="promo_content">
-                        <div class="color_text color_exclusive">exclusive</div>
-                        <h2 class="promo_h2">Fishnet Chair</h2>
-                        <p class="text_reg propmo_p">Seat and back with upholstery made of cold cure foam. Steel frame, available in matt powder-coated black or highly polished chrome.</p>
-                        <a href="#" class="button button_long">Order Us <i class="fas fa-chevron-right"></i></a>
-                    </div>
-
-                </div>
-            </div>
+            {% include 'mainapp/includes/inc_promo.html' %}
         </div>
 {% endblock %}

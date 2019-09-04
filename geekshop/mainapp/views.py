@@ -9,8 +9,10 @@ from .models import ProductCategory, Product
 
 
 def main(request):
+    products = Product.objects.all()[:6]
     context = {
         'page_title': 'interior: home page',
+        'products': products,
     }
     return render(request, 'mainapp/index.html', context)
 
@@ -25,11 +27,11 @@ def product(request, pk=None):
 
     if pk is not None:
         if pk == 0:
-            products = Product.objects.all()
+            products = Product.objects.all().order_by('price')
             category = {'name': 'all'}
         else:
             category = get_object_or_404(ProductCategory, pk=pk)
-            products = Product.objects.filter(category__pk=pk)
+            products = Product.objects.filter(category__pk=pk).order_by('price')
         context = {
             'page_title': 'interior: products',
             'products': products,
@@ -40,7 +42,7 @@ def product(request, pk=None):
 
         return render(request, 'mainapp/interior-product.html', context)
 
-    products = Product.objects.all()
+    products = Product.objects.all().order_by('price')
     context = {
         'page_title': 'interior: products',
         'products': products,
