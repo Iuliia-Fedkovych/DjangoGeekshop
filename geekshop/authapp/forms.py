@@ -9,7 +9,7 @@ from .models import ShopUser
 class ShopUserLoginForm(AuthenticationForm):
     class Meta:
         model = ShopUser
-        fields = ('user name', 'password')
+        fields = ('username', 'password')
 
     def __init__(self, *args, **kwargs):
         super(ShopUserLoginForm, self).__init__(*args, **kwargs)
