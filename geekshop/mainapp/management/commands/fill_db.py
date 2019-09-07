@@ -9,8 +9,6 @@ from django.conf import settings
 
 import json, os
 
-JSON_PATH = 'mainapp/json'
-
 def load_from_json(file_name):
     with open(os.path.join(settings.JSON_PATH, file_name + '.json'),
               'r',

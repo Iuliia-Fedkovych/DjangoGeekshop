@@ -2,6 +2,9 @@
 {% load staticfiles %}
 
 {% block content %}
+    <div class="h2 text-center heaf">
+        Register
+    </div>
     <form class="form-horisontal" enctype="multipart/form-data" action="{% url 'auth:register' %}" method="post">
         {% csrf_token %}
         {{ register_form.as_p }}
