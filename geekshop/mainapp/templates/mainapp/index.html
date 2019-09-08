@@ -68,7 +68,7 @@
                     {% for prod in products%}
                     <div class="trending_product" style="background-image: url(/media/{{ prod.image}})">
                         <div class="product_content">
-                            <a href="{% url 'basket:add' prod.pk %}" class="button btn_circle"><i class="fas fa-chevron-right chevron-circle"></i></a>
+                            <a href="{% url 'product:productdet' prod.pk %}" class="button btn_circle"><i class="fas fa-chevron-right chevron-circle"></i></a>
                             <h2 class="product_name">{{ prod.name }}</h2>
                             <p class="text_reg text_product">{{ prod.short_desc }}</p>
                         </div>
@@ -82,7 +82,7 @@
                     <h2 class="slider__h2">Fishnet Chair</h2>
                     <p class="text_reg slider__p">Seat and back with upholstery made of cold cure foam. Steel frame, available in matt powder-coated black or highly polished chrome.
                     </p>
-                    <a href="{% url 'productdet' %}" class="button button_long">Order Us <i class="fas fa-chevron-right"></i></a>
+                    <a href="#" class="button button_long">Order Us <i class="fas fa-chevron-right"></i></a>
                 </div>
                 <div class="slider__pagination">
                     <a href="#" class="circle"></a>
