@@ -46,10 +46,13 @@
             </a>
         </li>
         <li>
-            <a href="#" class="menu__link">
+            <a href="{% url 'basket:view' %}" class="menu__link">
                 <i class="fas fa-shopping-basket"></i>
                 <span class="use_link">
-                    {% if basket %} {{ basket|length }} {% endif %}
+                    {% if basket %}
+                        {{ basket.0.total_quantity|floatformat:0 }}
+                        {{ basket.0.total_cost }}
+                    {% endif %}
                 </span>
             </a>
         </li>
