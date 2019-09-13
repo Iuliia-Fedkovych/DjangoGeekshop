@@ -35,7 +35,7 @@ def user_create(request):
         user_form = ShopUserRegisterForm()
     context = {
         'title': title,
-        'update_from': user_form,
+        'update_form': user_form,
         }
     return render(request, 'adminapp/user_update.html', context)
 
@@ -103,7 +103,7 @@ def category_create(request):
         category_form = ProductCategoryEditForm()
     context = {
         'title': title,
-        'update_from': category_form,
+        'update_form': category_form,
         }
     return render(request, 'adminapp/category_update.html', context)
 
