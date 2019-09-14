@@ -18,13 +18,13 @@
 				</div>
 				<div class="category_actions">
 					<button>
-						<a href={% url 'admin:products' object.pk %}>category products</a>
+						<a href="{% url 'admin:products' object.pk %}">category products</a>
 					</button>
 					<button>
-						<a href={% url 'admin:category_update' object.pk %}>edit</a>
+						<a href="{% url 'admin:category_update' object.pk %}">edit</a>
 					</button>
 					<button>
-						<a href={% url 'admin:category_delete' object.pk %}>delete</a>
+						<a href="{% url 'admin:category_delete' object.pk %}">delete</a>
 					</button>
 				</div>
 				<div class="category_desc">
