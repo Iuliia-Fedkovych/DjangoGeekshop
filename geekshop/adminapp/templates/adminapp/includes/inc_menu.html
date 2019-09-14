@@ -19,9 +19,9 @@
             class="{% if requested.resolver_match.url_name == 'categories' or category.name %}
                     active
                     {% endif %}">
-           categories
+           categories:
             {% if category %}
-            :<span>{{ category.name }}</span>
+            <span>{{ category.name }}</span>
             {% endif %}
         </a>
     </li>
