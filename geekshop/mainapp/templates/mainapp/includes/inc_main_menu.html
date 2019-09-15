@@ -32,6 +32,11 @@
                 {{ user.first_name|default:'User' }}
             </a>
         </li>
+        {% if user.is_superuser %}
+            <li>
+                <a href="{% url 'admin:users' %}" class="menu__link">admin panel</a>
+            </li>
+        {% endif %}
         {% endif %}
         <li>
             {% if user.is_authenticated %}

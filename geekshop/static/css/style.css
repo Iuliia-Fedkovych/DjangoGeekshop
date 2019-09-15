@@ -847,3 +847,7 @@ body {
 .price_font {
     font-size: 72px;
 }
+
+.not_active {
+    opacity: 0.5;
+}
