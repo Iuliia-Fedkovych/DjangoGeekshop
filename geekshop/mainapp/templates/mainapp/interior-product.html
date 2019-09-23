@@ -1,5 +1,6 @@
 {% extends 'mainapp/base.html' %}
 {% load static %}
+{% load my_tags %}
 
 {% block top %}
 <div class="top">
@@ -11,9 +12,30 @@
                 <div class="hading_featured">
                     {% include 'mainapp/includes/inc_categories_menu.html' %}
                 </div>
+                <div class="products_list">
+                    <div class="title clearfix">
+                        <h2>Category: "{{ category.name|title }}"</h2>
+                        <div class="'paginator">
+                            {% if products.has_previous %}
+                                <a href="{% url 'product:page' category.pk products.previous_page_number %}">
+                                    <
+                                </a>
+                            {% endif %}
+                            <span class="current">
+                                page {{ products.number }} from {{ products.paginator.num_pages }}
+                            </span>
+                            {% if products.has_next %}
+                                <a href="{% url 'product:page' category.pk products.next_page_number %}">
+                                    >
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                </div>
                 <div class="tab_content">
                     {% for prod in products%}
-                    <div class="trending_product" style="background-image: url(/media/{{ prod.image}})">
+                    <div class="trending_product" style="background-image: url({{ prod.image|media_folder_products}})">
                         <div class="product_content">
                             <a href="{% url 'product:productdet' prod.pk %}" class="button btn_circle"><i class="fas fa-chevron-right chevron-circle"></i></a>
                             <h2 class="product_name">{{ prod.name }}</h2>

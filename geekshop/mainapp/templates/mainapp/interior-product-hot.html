@@ -1,5 +1,6 @@
 {% extends 'mainapp/base.html' %}
 {% load static %}
+{% load my_tags %}
 
 {% block top %}
 <div class="top">
@@ -11,11 +12,11 @@
             </div>
             <div class="product_information padding_site">
                 <div class="product_slider">
-                    <div class="product_slider_big" style="background-image: url(/media/{{ hot_product.image}})"></div>
+                    <div class="product_slider_big" style="background-image: url({{ hot_product.image|media_folder_products}})"></div>
                     <div class="product_slider_elem">
-                        <div class="product_slider_small" style="background-image: url(/media/{{ hot_product.image}})"></div>
-                        <div class="product_slider_small" style="background-image: url(/media/{{ hot_product.image}})"></div>
-                        <div class="product_slider_small" style="background-image: url(/media/{{ hot_product.image}})"></div>
+                        <div class="product_slider_small" style="background-image: url({{ hot_product.image|media_folder_products}})"></div>
+                        <div class="product_slider_small" style="background-image: url({{ hot_product.image|media_folder_products}})"></div>
+                        <div class="product_slider_small" style="background-image: url({{ hot_product.image|media_folder_products}})"></div>
                     </div>
 
                 </div>
@@ -32,7 +33,7 @@
                 </div>
                 <div class="tab_content">
                     {% for prod in same_products%}
-                    <div class="trending_product" style="background-image: url(/media/{{ prod.image}})">
+                    <div class="trending_product" style="background-image: url({{ prod.image|media_folder_products}})">
                         <div class="product_content">
                             <a href="{% url 'product:productdet' prod.pk %}" class="button btn_circle"><i class="fas fa-chevron-right chevron-circle"></i></a>
                             <h2 class="product_name">{{ prod.name }}</h2>

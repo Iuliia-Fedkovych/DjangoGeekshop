@@ -1,5 +1,6 @@
 {% extends 'mainapp/base.html' %}
 {% load static %}
+{% load my_tags %}
 
 {% block top %}
 <div class="top">
@@ -11,11 +12,11 @@
             </div>
             <div class="product_information padding_site">
                 <div class="product_slider">
-                    <div class="product_slider_big" style="background-image: url(/media/{{ product.image}})"></div>
+                    <div class="product_slider_big" style="background-image: url({{ product.image|media_folder_products}})"></div>
                     <div class="product_slider_elem">
-                        <div class="product_slider_small" style="background-image: url(/media/{{ product.image}})"></div>
-                        <div class="product_slider_small" style="background-image: url(/media/{{ product.image}})"></div>
-                        <div class="product_slider_small" style="background-image: url(/media/{{ product.image}})"></div>
+                        <div class="product_slider_small" style="background-image: url({{ product.image|media_folder_products}})"></div>
+                        <div class="product_slider_small" style="background-image: url({{ product.image|media_folder_products}})"></div>
+                        <div class="product_slider_small" style="background-image: url({{ product.image|media_folder_products}})"></div>
                     </div>
 
                 </div>
