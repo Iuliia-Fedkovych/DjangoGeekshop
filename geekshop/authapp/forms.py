@@ -3,6 +3,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import UserChangeForm
 from django.forms import ValidationError, HiddenInput
 
+import random, hashlib
+
 from .models import ShopUser
 
 
@@ -32,6 +34,17 @@ class ShopUserRegisterForm(UserCreationForm):
         if data < 18:
             raise ValidationError("Your are too young")
         return data
+
+    def save(self, commit=True):
+        user = super(ShopUserRegisterForm, self).save()
+
+        user.is_active = False
+        salt = hashlib.sha1(str(random.random()).encode('utf8')).hexdigest()
+        user.activation_key = hashlib.sha1((user.email+salt).encode('utf8')).hexdigest()
+        user.save()
+
+        return user
+
 
 class ShopUserEditForm(UserChangeForm):
     class Meta:
