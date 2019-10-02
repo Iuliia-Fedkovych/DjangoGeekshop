@@ -34,12 +34,10 @@ def get_same_products(hot_product):
 def main(request):
     products = Product.objects.filter(is_active=True,
                                       category__is_active=True)[:6]
-    basket = get_basket(request.user)
 
     context = {
         'page_title': 'interior: home page',
         'products': products,
-        'basket': basket,
     }
     return render(request, 'mainapp/index.html', context)
 
@@ -47,14 +45,13 @@ def main(request):
 def product(request, pk=None, page = 1):
     print(pk)
     categories = ProductCategory.objects.filter(is_active=True)
-    basket = get_basket(request.user)
 
     if pk is not None:
         if pk == 0:
             products = Product.objects.filter(is_active=True,
                                               category__is_active=True).order_by('price')
             category = {
-                'pk':0,
+                'pk': 0,
                 'name': 'all'
             }
         else:
@@ -74,7 +71,6 @@ def product(request, pk=None, page = 1):
             'products': products_paginator,
             'categories': categories,
             'category': category,
-            'basket': basket,
         }
 
         return render(request, 'mainapp/interior-product.html', context)
@@ -87,14 +83,12 @@ def product(request, pk=None, page = 1):
         'categories': categories,
         'hot_product': hot_product,
         'same_products': same_products,
-        'basket': basket,
     }
     return render(request, 'mainapp/interior-product-hot.html', context)
 
 
 def contact(request):
 
-    basket = get_basket(request.user)
 
     with open('geekshop/locations.json', 'r', encoding='utf-8') as f:
         locations = json.load(f)
@@ -102,13 +96,11 @@ def contact(request):
     context = {
         'page_title': 'interior: contacts',
         'locations': locations,
-        'basket': basket,
     }
     return render(request, 'mainapp/interior-contact.html', context)
 
 
 def productdet(request, pk):
-    basket = get_basket(request.user)
     categories = ProductCategory.objects.filter(is_active=True)
     product = get_object_or_404(Product, pk=pk)
 
@@ -116,6 +108,5 @@ def productdet(request, pk):
         'page_title': 'interior: product',
         'categories': categories,
         'product': product,
-        'basket': basket,
     }
     return render(request, 'mainapp/interior-product-details.html', context)
