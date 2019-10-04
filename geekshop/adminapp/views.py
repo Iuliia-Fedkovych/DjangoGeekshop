@@ -35,7 +35,7 @@ def user_create(request):
     context = {
         'title': title,
         'update_form': user_form,
-        }
+    }
     return render(request, 'adminapp/user_update.html', context)
 
 
@@ -56,7 +56,7 @@ def user_update(request, pk):
     context = {
         'title': title,
         'update_form': edit_form,
-        }
+    }
     return render(request, 'adminapp/user_update.html', context)
 
 
@@ -122,6 +122,7 @@ class ProductCategoryDeleteView(DeleteView):
 
         return HttpResponseRedirect(self.get_success_url())
 
+
 @user_passes_test(lambda u: u.is_superuser)
 def products(request, pk):
     title = 'admin/product'
@@ -151,7 +152,7 @@ def product_create(request, pk):
             return HttpResponseRedirect(reverse('admin:products',
                                                 args=[pk]))
     else:
-        product_form = ProductEditForm(initial={'category':category})
+        product_form = ProductEditForm(initial={'category': category})
     context = {
         'title': title,
         'update_form': product_form,
@@ -163,6 +164,7 @@ def product_create(request, pk):
 class ProductDetailView(DetailView):
     model = Product
     template_name = 'adminapp/product_read.html'
+
 
 @user_passes_test(lambda u: u.is_superuser)
 def product_update(request, pk):
@@ -176,7 +178,7 @@ def product_update(request, pk):
         if edit_form.is_valid():
             edit_form.save()
             return HttpResponseRedirect(reverse('admin:product_update',
-                                                args = [edit_product.pk]))
+                                                args=[edit_product.pk]))
     else:
         edit_form = ProductEditForm(instance=edit_product)
     context = {
@@ -191,14 +193,14 @@ def product_update(request, pk):
 def product_delete(request, pk):
     title = 'product/delete'
 
-    product = get_object_or_404(Product, pk = pk)
+    product = get_object_or_404(Product, pk=pk)
 
     if request.method == 'POST':
         product.is_active = False
         product.save()
         return HttpResponseRedirect(reverse('admin:products',
-                                            args = [product.category.pk]))
-    context ={
+                                            args=[product.category.pk]))
+    context = {
         'title': title,
         'product_to_delete': product,
     }
