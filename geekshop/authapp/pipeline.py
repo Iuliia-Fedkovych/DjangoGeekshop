@@ -17,7 +17,7 @@ def save_user_profile(backend, user, response, *args, **kwargs):
                           'api.vk.com',
                           '/method/users.get',
                           None,
-                          urlencode(OrderedDict(fields=','.join(('bdate', 'sex', 'about')),
+                          urlencode(OrderedDict(fields=','.join(('bdate', 'sex', 'about', 'language', 'id')),
                                                 access_token=response['access_token'],
                                                 v='5.92')),
                           None
@@ -33,6 +33,12 @@ def save_user_profile(backend, user, response, *args, **kwargs):
 
     if data['about']:
         user.shopuserprofile.aboutMe = data['about']
+
+    if data['language']:
+        user.shopuserprofile.language = data['language']
+
+    if data['id']:
+        user.shopuserprofile.url_social ='https://vk.com/id' + str(data['id'])
 
     if data['bdate']:
         bdate = datetime.strptime(data['bdate'], '%d.%m.%Y').date()
