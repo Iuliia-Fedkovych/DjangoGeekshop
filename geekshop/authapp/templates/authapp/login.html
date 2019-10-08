@@ -19,4 +19,9 @@
             register
         </a>
     </button>
+    <button class="btn btn-round form-control">
+        <a href = "{% url 'social:begin' 'vk-oauth2' %}?next=/" class = "">
+            login via Vkontakte
+        </a>
+    </button>
 {% endblock%}
