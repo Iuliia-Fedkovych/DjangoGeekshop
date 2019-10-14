@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'dmklseck@tq&!neswp6ru+8wn20q42_ce2jg1q6=-0kk+++!_f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1']
 
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'basketapp',
     'adminapp',
     'social_django',
+    'ordersapp',
 ]
 
 MIDDLEWARE = [
