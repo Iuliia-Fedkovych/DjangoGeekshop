@@ -1,4 +1,4 @@
-{% load static %}
+{% load staticfiles %}
 
 <div class="header">
     <a href="/" class="logo"><img src="{% static 'img/logo.svg' %}" alt="logo"></a>
@@ -28,15 +28,30 @@
         </li>
         {% if user.is_authenticated %}
         <li>
-            <a href = "{% url 'auth:edit' %}" class="menu__link">
-                {{ user.first_name|default:'User' }}
-            </a>
+            <div class="dropdown">
+                <a class="dropdown-toggle menu__link" href="" data-toggle="dropdown">
+                    {{ user.first_name|default:'User' }}
+                    <span class="caret"></span>
+                </a>
+                <ul class = "dropdown-menu">
+                    <li>
+                        <a href="{% url 'auth:edit' %}">
+                            account
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'ordersapp:orders_list' %}">
+                            orders
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </li>
+        {% endif %}
         {% if user.is_superuser %}
             <li>
                 <a href="{% url 'admin:users' %}" class="menu__link">admin panel</a>
             </li>
-        {% endif %}
         {% endif %}
         <li>
             {% if user.is_authenticated %}
